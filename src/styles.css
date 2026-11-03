@@ -418,3 +418,16 @@ button{ -webkit-tap-highlight-color:transparent }
  .desktop-nav{overflow-x:auto;max-width:48vw;scrollbar-width:none}.desktop-nav::-webkit-scrollbar{display:none}
 }
 @media(prefers-reduced-motion:reduce){.promise-halo,.promise-seal{animation:none}}
+
+
+/* Consistent chapter navigation */
+.chapter-controls{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:18px;width:min(760px,calc(100% - 40px));margin:0 auto 28px;padding:14px 18px;border:1px solid rgba(255,229,245,.14);border-radius:18px;background:rgba(22,12,37,.68);backdrop-filter:blur(18px);box-shadow:0 12px 40px rgba(0,0,0,.18)}
+.chapter-controls button{display:flex;align-items:center;gap:9px;min-width:120px;padding:8px 10px;border:0;background:transparent;color:#f7dfbd;cursor:pointer;letter-spacing:.14em;font-size:9px;transition:transform .25s,color .25s}
+.chapter-controls button:hover{color:#fff;transform:translateY(-2px)}
+.chapter-controls button small{display:block;color:#c9b8d5;font-size:10px;letter-spacing:.04em;text-transform:none}
+.chapter-controls button:last-child{justify-content:flex-end;text-align:right}
+.chapter-edge{font-size:8px;letter-spacing:.16em;color:#bba9c9}
+.chapter-progress{display:flex;align-items:center;gap:9px;color:#e8cda8;font-size:9px;letter-spacing:.1em;white-space:nowrap}
+.chapter-progress i{display:block;width:clamp(35px,10vw,90px);height:1px;background:linear-gradient(90deg,#f1d49f,#d9a9db);box-shadow:0 0 10px rgba(242,203,178,.4)}
+@media(max-width:600px){.chapter-controls{width:calc(100% - 28px);gap:5px;padding:10px 9px;margin-bottom:18px}.chapter-controls button{min-width:0;gap:5px;padding:7px 4px;font-size:8px}.chapter-controls button small{font-size:9px}.chapter-edge{font-size:7px}.chapter-progress{gap:5px;font-size:8px}}
+@media(prefers-reduced-motion:reduce){.chapter-controls button{transition:none}}
