@@ -279,3 +279,102 @@ button:focus-visible{outline:2px solid #f7d99a;outline-offset:4px}
 @keyframes mantraGlow{from{text-shadow:0 0 0 rgba(255,226,187,0)}to{text-shadow:0 0 16px rgba(255,226,187,.5)}}
 @media(max-width:760px){.app:after{font-size:12px;line-height:15vh;letter-spacing:2vw}.intro-copy h1{font-size:clamp(35px,9.5vw,58px)}.gift-stage{animation-duration:5.5s}.full-scene:after{animation-duration:13s}.quality-card:hover,.quality-active{transform:translateY(-4px) scale(1.015)}}
 @media(prefers-reduced-motion:reduce){.app:before,.app:after,.gift-stage,.gift-box,.intro-copy h1,.intro-copy h1 em,.gold-title,.gold-title em,.quality-icon,.heart-interaction,.final-glow,.final-content h2,.final-content h2 em,.final-badge,.firework-title{animation:none!important}}
+
+
+/* LAVINIA SIGNATURE EDITION — immersive, luminous, editorial finish */
+:root{color-scheme:dark;scroll-behavior:smooth}
+::selection{background:rgba(246,190,224,.35);color:#fff}
+body{background:#10091f}
+button{ -webkit-tap-highlight-color:transparent }
+.app{min-height:100svh;overflow:hidden;background:#0c0719;color:#fff8f2}
+.app .ambient{filter:blur(95px);opacity:.8}
+.app .ambient-one{background:#8051b5;animation:signatureCloud 18s ease-in-out infinite alternate}
+.app .ambient-two{background:#b64f91;animation:signatureCloud 22s ease-in-out infinite alternate-reverse}
+.app:before{background:radial-gradient(ellipse at 50% 48%,rgba(115,75,164,.26),transparent 35%),radial-gradient(ellipse at 8% 82%,rgba(202,113,173,.16),transparent 32%),radial-gradient(ellipse at 92% 15%,rgba(100,126,197,.17),transparent 30%)}
+.app:after{content:"";background-image:radial-gradient(1px 1px at 8% 17%,#fff 98%,transparent),radial-gradient(1px 1px at 21% 72%,#f8d8f0 98%,transparent),radial-gradient(2px 2px at 34% 32%,#fff 98%,transparent),radial-gradient(1px 1px at 48% 82%,#ffe3bb 98%,transparent),radial-gradient(2px 2px at 66% 18%,#fff 98%,transparent),radial-gradient(1px 1px at 79% 63%,#f8d8f0 98%,transparent),radial-gradient(1px 1px at 93% 38%,#fff 98%,transparent);background-size:100% 100%;opacity:.55;animation:starFieldPulse 7s ease-in-out infinite alternate}
+.topbar{height:76px;padding-inline:clamp(20px,5vw,76px);background:linear-gradient(180deg,rgba(13,7,27,.9),rgba(13,7,27,.28));border-bottom:1px solid rgba(255,232,246,.09)}
+.brand{font-size:10px;letter-spacing:.23em}
+.brand-mark{font-size:19px;color:#f8d7a5}
+.desktop-nav{gap:clamp(12px,2.2vw,32px)}
+.desktop-nav button{font-size:9px;letter-spacing:.14em;color:#c9b8d5;transition:color .3s,text-shadow .3s}
+.desktop-nav button:hover,.desktop-nav .nav-active{color:#ffe4bf;text-shadow:0 0 16px rgba(255,219,174,.6)}
+.music-toggle{border:1px solid rgba(255,232,246,.2);background:rgba(255,255,255,.055);border-radius:40px;backdrop-filter:blur(16px)}
+.intro-screen{min-height:calc(100svh - 76px);padding-top:clamp(112px,15vh,170px);padding-bottom:80px}
+.intro-screen:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 54%,rgba(169,119,209,.19),transparent 34%),linear-gradient(180deg,transparent 60%,rgba(8,4,18,.4))}
+.intro-copy h1{font-size:clamp(42px,6.4vw,88px);letter-spacing:-.045em;line-height:1.08;font-weight:500}
+.intro-copy h1 em{font-size:1.13em}
+.intro-kicker,.eyebrow{letter-spacing:.26em}
+.intro-note{font-size:13px;letter-spacing:.035em;color:#d5c6df}
+.gift-stage{margin:30px auto 12px;transform:scale(1.08);transform-origin:center}
+.gift-box{filter:drop-shadow(0 0 28px rgba(246,209,169,.24))}
+.gift-aura{background:radial-gradient(ellipse,rgba(255,225,181,.72),rgba(226,161,238,.28) 42%,transparent 72%)}
+.primary-cta,.wish-button,.garden-button,.replay-button{min-height:52px;border-radius:999px;padding:0 27px;letter-spacing:.17em;font-size:10px;background:linear-gradient(115deg,#fff0d2,#e6c08c 48%,#fff0d2);color:#39213d;border:1px solid rgba(255,245,221,.7)}
+.primary-cta:hover,.wish-button:hover,.garden-button:hover,.replay-button:hover{color:#24142f}
+.intro-footnote{margin-top:24px;color:#b8a8c5;letter-spacing:.2em}
+.scroll-hint{color:#cdbbd9}
+.full-scene{min-height:calc(100svh - 76px);padding:110px 28px 76px}
+.full-scene:before{background:radial-gradient(ellipse at 50% 48%,transparent 15%,rgba(8,4,20,.18) 63%,rgba(8,4,20,.7));}
+.scene-content{max-width:940px}
+.gold-title{font-size:clamp(68px,10vw,132px);line-height:.94;letter-spacing:-.055em;margin:34px 0 24px}
+.gold-title em{font-size:1.12em}
+.scene-subtitle{font-size:14px;line-height:1.9;color:#e5d6e8;letter-spacing:.035em}
+.cake-caption{font-size:10px;letter-spacing:.24em;color:#f9dfb5;margin:28px 0}
+.wish-button{margin-top:8px}
+.wish-message{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#ffe8ce}
+.next-link{margin-top:34px;font-size:9px;letter-spacing:.22em;color:#e6d4ed;transition:color .25s,letter-spacing .25s}
+.next-link:hover{color:#ffe0b1;letter-spacing:.27em}
+.section-title{font-size:clamp(43px,6.7vw,82px);line-height:1.08;letter-spacing:-.04em}
+.section-title em{color:#f6c5df;text-shadow:0 0 35px rgba(241,164,213,.35)}
+.letter-card{max-width:660px;width:min(660px,92vw);padding:clamp(26px,4vw,48px);border:1px solid rgba(255,233,207,.45);border-radius:5px 5px 22px 5px;background:linear-gradient(145deg,#fff4e6,#f4dce7 55%,#f8ead8);color:#493348}
+.letter-card h3{font-size:clamp(32px,4vw,46px);color:#704d70}
+.letter-body p{font-size:13px;line-height:1.85;color:#674e65}
+.letter-top{color:#98719a}
+.letter-signature{color:#704d70}
+.envelope{filter:drop-shadow(0 30px 42px rgba(0,0,0,.5))}
+.envelope-front{background:linear-gradient(135deg,#c9a3e8,#9877c5 58%,#755a9e)}
+.seal{box-shadow:0 0 24px rgba(255,216,177,.6)}
+.garden-scene{background-image:radial-gradient(ellipse at 50% 75%,rgba(236,142,206,.27),transparent 32%),radial-gradient(ellipse at 12% 18%,rgba(157,133,233,.2),transparent 32%),linear-gradient(180deg,#17112f,#102d38 90%)}
+.garden-button{margin:23px 0}
+.garden-blooms{margin:32px auto}
+.garden-blooms span{font-size:clamp(25px,4vw,42px);color:#ffd5e8;text-shadow:0 0 22px rgba(255,183,221,.7)}
+.quality-grid{gap:16px;max-width:880px;margin:38px auto 0}
+.quality-card{min-height:185px;border-radius:20px;padding:24px 18px;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));border:1px solid rgba(255,232,247,.16)}
+.quality-card strong{font-size:10px;letter-spacing:.16em}
+.quality-icon{font-size:30px;margin-bottom:12px}
+.quality-copy{font-size:10px;line-height:1.7;color:#e5d5e8}
+.quality-number{color:#d6b3d8}
+.heart-interaction{width:180px;height:180px;margin:34px auto}
+.heart-interaction>svg{width:76px;height:76px}
+.heart-reveal{max-width:560px;margin:0 auto;font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,21px);line-height:1.7;background:rgba(255,225,241,.09);backdrop-filter:blur(20px)}
+.firework-title{font-size:clamp(42px,7vw,88px);line-height:1.18;letter-spacing:-.035em}
+.firework-title em{color:#f6c2e2;text-shadow:0 0 32px rgba(245,160,216,.6)}
+.final-scene{background-image:radial-gradient(ellipse at 50% 45%,rgba(255,195,224,.26),transparent 38%),radial-gradient(ellipse at 50% 100%,rgba(225,177,116,.16),transparent 45%),linear-gradient(180deg,#241333,#10091f)}
+.final-content h2{font-size:clamp(54px,8vw,100px);line-height:1.02}
+.final-message{font-size:15px;line-height:1.9}
+.final-badge{padding:13px 19px;border:1px solid rgba(255,225,185,.22);border-radius:999px;background:rgba(255,255,255,.055);backdrop-filter:blur(15px);letter-spacing:.16em}
+.final-mantra{gap:18px;font-size:10px}
+.replay-button{margin-top:12px}
+.page-footer{min-height:56px;font-size:8px;letter-spacing:.18em}
+.scene-canvas{opacity:.92}
+.scene-canvas canvas{filter:drop-shadow(0 0 28px rgba(223,176,255,.22))}
+.confetti-layer i{filter:drop-shadow(0 0 5px currentColor)}
+@keyframes signatureCloud{0%{transform:translate3d(-6%,-3%,0) scale(.9)}100%{transform:translate3d(8%,6%,0) scale(1.15)}}
+@keyframes starFieldPulse{from{opacity:.22;transform:scale(1)}to{opacity:.68;transform:scale(1.025)}}
+@media(max-width:760px){
+ .topbar{height:62px;padding-inline:16px}.intro-screen{min-height:calc(100svh - 62px);padding:94px 17px 70px}
+ .intro-copy h1{font-size:clamp(37px,10vw,58px)}.intro-kicker{font-size:8px;letter-spacing:.17em}
+ .gift-stage{transform:scale(.91);margin:8px auto}.intro-note{max-width:310px;font-size:11px}
+ .full-scene{min-height:calc(100svh - 62px);padding:92px 18px 55px}
+ .gold-title{font-size:clamp(57px,14vw,88px)}
+ .section-title{font-size:clamp(39px,10vw,57px)}
+ .quality-grid{gap:10px;margin-top:26px}.quality-card{min-height:155px;padding:18px 9px;border-radius:15px}
+ .quality-icon{font-size:25px}.quality-card strong{font-size:8px;line-height:1.5}.quality-copy{font-size:8px}
+ .letter-card{width:100%;max-height:66svh;overflow:auto;padding:22px 19px}.letter-body p{font-size:11px;line-height:1.75}
+ .heart-interaction{width:150px;height:150px}.heart-reveal{font-size:15px;padding:15px 18px}
+ .final-content h2{font-size:clamp(46px,12vw,69px)}.final-message{font-size:12px}
+ .final-mantra{font-size:8px;gap:9px}.page-footer{font-size:6px;letter-spacing:.1em}
+}
+@media(prefers-reduced-motion:reduce){
+ .app .ambient-one,.app .ambient-two,.app:after{animation:none!important}
+ .gift-stage,.gift-box,.gold-title,.gold-title em,.quality-card,.heart-interaction{animation:none!important}
+}
