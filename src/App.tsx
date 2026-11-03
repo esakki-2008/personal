@@ -300,9 +300,13 @@ function App() {
     return () => oscillators.forEach(({ osc }) => { try { osc.stop() } catch { /* already stopped */ } })
   }, [music, audioReady])
 
-  const navItems: { scene: Scene; label: string }[] = [
-    { scene: 'celebration', label: 'Celebration' }, { scene: 'letter', label: 'A letter' }, { scene: 'garden', label: 'Garden' }, { scene: 'special', label: 'You' }, { scene: 'heart', label: 'Our bond' }, { scene: 'constellation', label: 'Star map' }, { scene: 'wishes', label: 'Wish book' }, { scene: 'promise', label: 'Promises' }, { scene: 'fireworks', label: 'Fireworks' },
+  const chapterOrder: { scene: Scene; label: string }[] = [
+    { scene: 'celebration', label: 'Celebration' }, { scene: 'letter', label: 'A letter' }, { scene: 'garden', label: 'Garden' }, { scene: 'special', label: 'You' }, { scene: 'heart', label: 'Our bond' }, { scene: 'constellation', label: 'Star map' }, { scene: 'wishes', label: 'Wish book' }, { scene: 'promise', label: 'Promises' }, { scene: 'fireworks', label: 'Fireworks' }, { scene: 'final', label: 'Finale' },
   ]
+  const navItems = chapterOrder.filter(item => item.scene !== 'final')
+  const currentChapter = chapterOrder.findIndex(item => item.scene === scene)
+  const previousChapter = currentChapter > 0 ? chapterOrder[currentChapter - 1] : null
+  const nextChapter = currentChapter >= 0 && currentChapter < chapterOrder.length - 1 ? chapterOrder[currentChapter + 1] : null
 
   return <div className={`app scene-${scene}`} ref={rootRef}>
     <div className="ambient ambient-one" /><div className="ambient ambient-two" />
@@ -404,7 +408,7 @@ function App() {
               <span className="heart-orbit"/><span className="heart-orbit orbit-two"/><Heart fill="url(#heartFill)" size={54} strokeWidth={1}/><span>CLICK THE HEART</span>
             </button>
             <AnimatePresence>{heartRevealed && <motion.div className="heart-reveal" initial={{ opacity: 0, scale: .85, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0 }}><span>♡</span>You're not just a friend, Lavinia. You're family. A sister I got through life's beautiful journey. I'm grateful to have you. <b>♡</b></motion.div>}</AnimatePresence>
-            <button className="next-link" onClick={() => transition('fireworks')}>LET'S LIGHT UP THE SKY <ArrowDown size={14}/></button>
+            <button className="next-link" onClick={() => transition('constellation')}>DISCOVER YOUR LITTLE GALAXY <ArrowDown size={14}/></button>
           </div>
         </motion.section>}
 
@@ -462,7 +466,7 @@ function App() {
           'And wherever life takes us, this bond will always be precious.',
         ].map((p,i)=><motion.div className="promise-line" key={p} initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.5}} transition={{delay:i*.12}}><span>✦</span>{p}</motion.div>)}</div>
         <div className="promise-seal">WITH LOVE <span>♡</span> ALWAYS</div>
-        <button className="next-link" onClick={() => transition('final')}>TAKE ME TO THE LAST SURPRISE <ArrowDown size={14}/></button>
+        <button className="next-link" onClick={() => transition('fireworks')}>LET'S LIGHT UP THE SKY <ArrowDown size={14}/></button>
       </div>
     </motion.section>}
 
@@ -482,6 +486,12 @@ function App() {
         </motion.section>}
       </AnimatePresence>
     </main>
+
+    {scene !== 'intro' && scene !== 'final' && <div className="chapter-controls" aria-label="Chapter navigation">
+      {previousChapter ? <button onClick={() => transition(previousChapter.scene)}><ArrowUp size={13}/><span>PREVIOUS</span><small>{previousChapter.label}</small></button> : <span className="chapter-edge">YOUR JOURNEY BEGINS HERE</span>}
+      <div className="chapter-progress" aria-label={`Chapter ${currentChapter + 1} of ${chapterOrder.length}`}><span>{String(currentChapter + 1).padStart(2, '0')}</span><i/><span>{String(chapterOrder.length).padStart(2, '0')}</span></div>
+      {nextChapter ? <button onClick={() => transition(nextChapter.scene)}><span>NEXT</span><small>{nextChapter.label}</small><ArrowDown size={13}/></button> : null}
+    </div>}
 
     <footer className="page-footer"><span>✦</span> A LITTLE MAGIC, MADE WITH LOVE <span>♡</span> <span className="footer-right">FOR LAVINIA · ALWAYS SHINE</span></footer>
   </div>
