@@ -6,7 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown, ArrowUp, Heart, Volume2, VolumeX, Sparkles as SparkleIcon, Gift, Music2, MoonStar, Flower2, Star, Sun, RefreshCw, X, ChevronDown } from 'lucide-react'
 import gsap from 'gsap'
 
-type Scene = 'intro' | 'celebration' | 'letter' | 'garden' | 'special' | 'heart' | 'fireworks' | 'final'
+type Scene = 'intro' | 'celebration' | 'letter' | 'garden' | 'special' | 'heart' | 'fireworks' | 'constellation' | 'wishes' | 'promise' | 'final'
 
 const letter = [
   'Some people enter our lives as friends, but slowly become family. You are one of those beautiful blessings in my life.',
@@ -164,12 +164,15 @@ function SceneCanvas({ scene, onHeart }: { scene: Scene; onHeart?: () => void })
   const isGarden = scene === 'garden'
   const isCake = scene === 'celebration' || scene === 'final'
   return <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 8], fov: 44 }} gl={{ antialias: true, alpha: true }} onCreated={({ gl }) => { gl.setClearColor('#000000', 0) }}>
-    <CameraDrift scene={scene} />\n    <ambientLight intensity={isGarden ? 1.35 : 1.05} />
+    <CameraDrift scene={scene} />
+    <ambientLight intensity={isGarden ? 1.35 : 1.05} />
     <pointLight position={[4, 5, 5]} intensity={2.2} color="#e7c7ff" />
-    <pointLight position={[-5, 1, 3]} intensity={1.65} color="#ffb9db" />\n    <pointLight position={[0, -4, -2]} intensity={.75} color="#a98bff" />
+    <pointLight position={[-5, 1, 3]} intensity={1.65} color="#ffb9db" />
+    <pointLight position={[0, -4, -2]} intensity={.75} color="#a98bff" />
     <Stars radius={65} depth={35} count={isGarden ? 500 : 950} factor={3} saturation={.3} fade speed={.18} />
     <Sparkles count={isGarden ? 95 : 145} scale={[16, 9, 8]} size={2.4} speed={.22} opacity={.62} color="#f5d8ff" />
-    <FloatingDust count={isGarden ? 85 : 145} />\n    <OrbitingJewels />
+    <FloatingDust count={isGarden ? 85 : 145} />
+    <OrbitingJewels />
     <Butterflies />
     {isCake && <Float speed={1.1} rotationIntensity={.1} floatIntensity={.24}><Cake /></Float>}
     {scene === 'heart' && <Float speed={1.3} rotationIntensity={.25} floatIntensity={.45}><CrystalHeart scale={1.5} onClick={onHeart} /></Float>}
@@ -298,7 +301,7 @@ function App() {
   }, [music, audioReady])
 
   const navItems: { scene: Scene; label: string }[] = [
-    { scene: 'celebration', label: 'Celebration' }, { scene: 'letter', label: 'A letter' }, { scene: 'garden', label: 'Garden' }, { scene: 'special', label: 'You' }, { scene: 'heart', label: 'Our bond' }, { scene: 'fireworks', label: 'Fireworks' },
+    { scene: 'celebration', label: 'Celebration' }, { scene: 'letter', label: 'A letter' }, { scene: 'garden', label: 'Garden' }, { scene: 'special', label: 'You' }, { scene: 'heart', label: 'Our bond' }, { scene: 'constellation', label: 'Star map' }, { scene: 'wishes', label: 'Wish book' }, { scene: 'promise', label: 'Promises' }, { scene: 'fireworks', label: 'Fireworks' },
   ]
 
   return <div className={`app scene-${scene}`} ref={rootRef}>
@@ -416,7 +419,54 @@ function App() {
           </div>
         </motion.section>}
 
-        {scene === 'final' && <motion.section key="final" className="full-scene final-scene" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        {scene === 'constellation' && <motion.section key="constellation" className="full-scene constellation-scene" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <div className="constellation-sky" aria-hidden>{Array.from({ length: 42 }, (_, i) => <motion.i key={i} style={{ left: seeded(i + 1200) * 100 + '%', top: seeded(i + 1300) * 100 + '%' }} animate={{ opacity: [.18, .95, .25], scale: [.7, 1.5, .7] }} transition={{ duration: 2.5 + seeded(i + 1400) * 4, repeat: Infinity, delay: seeded(i + 1500) * 4 }} />)}</div>
+      <div className="scene-content constellation-content">
+        <p className="eyebrow"><span/> YOUR OWN LITTLE GALAXY <span/></p>
+        <h2 className="section-title">A universe named<br/><em>after your sparkle.</em></h2>
+        <p className="scene-subtitle">If every lovely thing in the sky became a wish for you, the stars would never run out.</p>
+        <div className="star-map"><div className="star-map-orbit orbit-one"/><div className="star-map-orbit orbit-two"/><div className="star-map-core">L<span>♡</span></div>{Array.from({length:9},(_,i)=><motion.span key={i} className="map-star" style={{'--angle':(i*40)+'deg','--distance':(100+i%3*22)+'px'} as React.CSSProperties} animate={{rotate:360}} transition={{duration:22+i*3,repeat:Infinity,ease:'linear'}}>✦</motion.span>)}</div>
+        <div className="constellation-quote">“May you always find your way to the brightest version of yourself.”</div>
+        <button className="next-link" onClick={() => transition('wishes')}>OPEN YOUR WISH BOOK <ArrowDown size={14}/></button>
+      </div>
+    </motion.section>}
+
+    {scene === 'wishes' && <motion.section key="wishes" className="full-scene wishes-scene" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+      <div className="scene-content wishes-content">
+        <p className="eyebrow"><span/> LITTLE WISHES, INFINITE LOVE <span/></p>
+        <h2 className="section-title">A wish for every<br/><em>beautiful tomorrow.</em></h2>
+        <p className="scene-subtitle">Tap each little star to uncover a wish waiting just for you.</p>
+        <div className="wish-grid">{[
+          ['01','JOY','May laughter find you in the smallest moments.','☀'],
+          ['02','COURAGE','May you always be brave enough to chase your dreams.','✧'],
+          ['03','PEACE','May your heart feel calm, safe and deeply loved.','☾'],
+          ['04','ADVENTURE','May life surprise you with places and people that make you bloom.','✈'],
+          ['05','SUCCESS','May every effort bring you closer to the life you imagine.','♛'],
+          ['06','LOVE','May you always be surrounded by people who celebrate you.','♡'],
+        ].map((w,i)=><motion.button key={w[0]} className={`wish-tile ${activeQuality === i+10 ? 'wish-tile-open' : ''}`} onClick={()=>{setActiveQuality(activeQuality===i+10?null:i+10);sound(660+i*70,.18)}} whileHover={{y:-8,rotateX:5}} whileTap={{scale:.96}}>
+          <span className="wish-tile-number">{w[0]}</span><span className="wish-tile-icon">{w[3]}</span><b>{w[1]}</b><span>{activeQuality===i+10?w[2]:'TAP TO REVEAL YOUR WISH'}</span>
+        </motion.button>)}</div>
+        <button className="next-link" onClick={() => transition('promise')}>A FEW PROMISES FOR YOU <ArrowDown size={14}/></button>
+      </div>
+    </motion.section>}
+
+    {scene === 'promise' && <motion.section key="promise" className="full-scene promise-scene" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+      <div className="promise-halo"/><div className="scene-content promise-content">
+        <p className="eyebrow"><span/> A LITTLE PROMISE FROM MY HEART <span/></p>
+        <h2 className="section-title">No matter what,<br/><em>you'll always matter.</em></h2>
+        <div className="promise-list">{[
+          'I will always wish the very best for you.',
+          'I hope you never forget how special you are.',
+          'I will cheer for your wins, big and small.',
+          'I hope you keep choosing happiness and yourself.',
+          'And wherever life takes us, this bond will always be precious.',
+        ].map((p,i)=><motion.div className="promise-line" key={p} initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.5}} transition={{delay:i*.12}}><span>✦</span>{p}</motion.div>)}</div>
+        <div className="promise-seal">WITH LOVE <span>♡</span> ALWAYS</div>
+        <button className="next-link" onClick={() => transition('final')}>TAKE ME TO THE LAST SURPRISE <ArrowDown size={14}/></button>
+      </div>
+    </motion.section>}
+
+    {scene === 'final' && <motion.section key="final" className="full-scene final-scene" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
           <div className="scene-canvas"><SceneCanvas scene="final"/></div>
           <div className="final-glow"/>
           <div className="scene-content final-content">
