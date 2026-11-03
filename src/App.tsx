@@ -124,16 +124,52 @@ function Butterflies() {
   </group>)}</group>
 }
 
+function OrbitingJewels() {
+  const ring = useRef<THREE.Group>(null)
+  const gems = useMemo(() => Array.from({ length: 18 }, (_, i) => ({
+    angle: (i / 18) * Math.PI * 2,
+    radius: 4.1 + seeded(i + 701) * 1.8,
+    height: (seeded(i + 801) - .5) * 5.8,
+    size: .035 + seeded(i + 901) * .075,
+    color: ['#ffd9a6', '#f5b8dc', '#cbb7ff', '#a9e8e3'][i % 4],
+  })), [])
+  useFrame((state, delta) => {
+    if (ring.current) {
+      ring.current.rotation.y += delta * .035
+      ring.current.rotation.z = Math.sin(state.clock.elapsedTime * .12) * .08
+    }
+  })
+  return <group ref={ring}>
+    <mesh rotation={[Math.PI / 2.5, .2, 0]}><torusGeometry args={[4.7, .008, 8, 180]} /><meshBasicMaterial color="#e9c6ff" transparent opacity={.24} /></mesh>
+    <mesh rotation={[Math.PI / 2.1, -.3, .4]}><torusGeometry args={[5.25, .006, 8, 180]} /><meshBasicMaterial color="#f6d8a8" transparent opacity={.2} /></mesh>
+    {gems.map((g, i) => <mesh key={i} position={[Math.cos(g.angle) * g.radius, g.height, Math.sin(g.angle) * g.radius]}>
+      <octahedronGeometry args={[g.size, 1]} />
+      <meshStandardMaterial color={g.color} emissive={g.color} emissiveIntensity={.8} metalness={.55} roughness={.18} />
+    </mesh>)}
+  </group>
+}
+
+function CameraDrift({ scene }: { scene: Scene }) {
+  useFrame((state, delta) => {
+    const targetZ = scene === 'intro' ? 8.8 : scene === 'heart' ? 7.1 : scene === 'final' ? 7.6 : 8
+    state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, Math.sin(state.clock.elapsedTime * .09) * .16, 1.1, delta)
+    state.camera.position.y = THREE.MathUtils.damp(state.camera.position.y, Math.cos(state.clock.elapsedTime * .11) * .11, 1.1, delta)
+    state.camera.position.z = THREE.MathUtils.damp(state.camera.position.z, targetZ, 1.2, delta)
+    state.camera.lookAt(0, 0, 0)
+  })
+  return null
+}
+
 function SceneCanvas({ scene, onHeart }: { scene: Scene; onHeart?: () => void }) {
   const isGarden = scene === 'garden'
   const isCake = scene === 'celebration' || scene === 'final'
   return <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 8], fov: 44 }} gl={{ antialias: true, alpha: true }} onCreated={({ gl }) => { gl.setClearColor('#000000', 0) }}>
-    <ambientLight intensity={isGarden ? 1.2 : .85} />
+    <CameraDrift scene={scene} />\n    <ambientLight intensity={isGarden ? 1.35 : 1.05} />
     <pointLight position={[4, 5, 5]} intensity={2.2} color="#e7c7ff" />
-    <pointLight position={[-5, 1, 3]} intensity={1.3} color="#ffb9db" />
+    <pointLight position={[-5, 1, 3]} intensity={1.65} color="#ffb9db" />\n    <pointLight position={[0, -4, -2]} intensity={.75} color="#a98bff" />
     <Stars radius={65} depth={35} count={isGarden ? 500 : 950} factor={3} saturation={.3} fade speed={.18} />
     <Sparkles count={isGarden ? 95 : 145} scale={[16, 9, 8]} size={2.4} speed={.22} opacity={.62} color="#f5d8ff" />
-    <FloatingDust count={isGarden ? 65 : 115} />
+    <FloatingDust count={isGarden ? 85 : 145} />\n    <OrbitingJewels />
     <Butterflies />
     {isCake && <Float speed={1.1} rotationIntensity={.1} floatIntensity={.24}><Cake /></Float>}
     {scene === 'heart' && <Float speed={1.3} rotationIntensity={.25} floatIntensity={.45}><CrystalHeart scale={1.5} onClick={onHeart} /></Float>}
