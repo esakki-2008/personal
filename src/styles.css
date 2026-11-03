@@ -431,3 +431,26 @@ button{ -webkit-tap-highlight-color:transparent }
 .chapter-progress i{display:block;width:clamp(35px,10vw,90px);height:1px;background:linear-gradient(90deg,#f1d49f,#d9a9db);box-shadow:0 0 10px rgba(242,203,178,.4)}
 @media(max-width:600px){.chapter-controls{width:calc(100% - 28px);gap:5px;padding:10px 9px;margin-bottom:18px}.chapter-controls button{min-width:0;gap:5px;padding:7px 4px;font-size:8px}.chapter-controls button small{font-size:9px}.chapter-edge{font-size:7px}.chapter-progress{gap:5px;font-size:8px}}
 @media(prefers-reduced-motion:reduce){.chapter-controls button{transition:none}}
+
+
+/* CONTENT VISIBILITY + LONG-CHAPTER FIX
+   Let every chapter grow to fit its copy instead of clipping text at viewport height. */
+.app{overflow-x:clip;overflow-y:visible}
+.full-scene{height:auto;min-height:100svh;max-height:none;overflow:visible;overflow-x:clip;align-items:flex-start;justify-content:center;}
+.full-scene>.scene-content{position:relative;z-index:4;display:block;width:min(100%,940px);margin:auto;padding:24px 0 42px;visibility:visible;color:#fff8ff;}
+.full-scene>.scene-canvas{z-index:0;}
+.full-scene .scene-subtitle,.full-scene .eyebrow,.full-scene .section-title,.full-scene .gold-title,.full-scene .firework-title,.full-scene .constellation-quote,.full-scene .promise-line,.full-scene .final-message,.full-scene .final-overline,.full-scene .final-signoff,.full-scene .final-footer{position:relative;z-index:4;}
+.constellation-sky,.firework-field,.promise-halo,.garden-haze,.final-glow{pointer-events:none}
+.wishes-content,.promise-content,.constellation-content{isolation:isolate;}
+.wish-grid{position:relative;z-index:4;}
+.promise-list{position:relative;z-index:4;}
+.chapter-controls{margin-top:0;}
+@media(max-width:760px){
+ .full-scene{min-height:calc(100svh - 62px);padding:86px 18px 34px;}
+ .full-scene>.scene-content{padding:18px 0 34px;}
+ .wish-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+ .promise-list{gap:10px;margin-top:24px;}
+ .promise-line{line-height:1.65;}
+ .star-map{margin-top:22px;margin-bottom:18px;}
+}
+@media(prefers-reduced-motion:reduce){.full-scene>.scene-content{opacity:1!important;visibility:visible!important}}
