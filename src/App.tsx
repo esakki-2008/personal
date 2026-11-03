@@ -9,13 +9,13 @@ import gsap from 'gsap'
 type Scene = 'intro' | 'celebration' | 'letter' | 'garden' | 'special' | 'heart' | 'fireworks' | 'constellation' | 'wishes' | 'promise' | 'final'
 
 const letter = [
-  'Some people enter our lives as friends, but slowly become family. You are one of those beautiful blessings in my life.',
-  'You are not just a friend to me; you are like a sister. Even though we may not be connected by blood, our bond is special in its own beautiful way.',
-  'Thank you for being the wonderful person you are. Your smile, your kindness, your personality, and your presence make life a little more beautiful.',
-  'I genuinely wish you endless happiness, unlimited success, good health, peace, and all the beautiful things your heart desires.',
-  'No matter where life takes us, always remember that you have a special place in my heart.',
-  'Keep smiling, keep shining, and never stop being YOU.',
-  'HAPPY BIRTHDAY, MY SISTER FROM ANOTHER MOTHER!',
+  'Some people begin as friends and, without even realising it, become family. You have become one of those rare people I am genuinely grateful to have in my life.',
+  'You are more than a friend to me, Lavinia. You are a sister by heart. We may not share the same family name or blood, but the place you hold in my life is real and special.',
+  'I hope you always see the good in yourself that the people who care about you can see. Your kindness, your smile and the person you are deserve to be celebrated—not just today, but every day.',
+  'For this new year of your life, I wish you a peaceful heart, good health, courage for every new beginning, success in the things you work hard for, and happiness that stays.',
+  'When life gets busy and everything changes, I hope you never doubt that you have someone wishing the very best for you and cheering you on from wherever they are.',
+  'Keep growing into the person you dream of becoming. Keep your light. Keep smiling. And never feel that you have to be anyone other than yourself.',
+  'HAPPY BIRTHDAY, LAVINIA. ALWAYS KEEP SHINING!',
 ]
 
 const qualities = [
@@ -407,7 +407,7 @@ function App() {
             <button className="heart-interaction" onClick={() => { setHeartRevealed(true); sound(720, .2); setConfetti(true); window.setTimeout(() => setConfetti(false), 2600) }}>
               <span className="heart-orbit"/><span className="heart-orbit orbit-two"/><Heart fill="url(#heartFill)" size={54} strokeWidth={1}/><span>CLICK THE HEART</span>
             </button>
-            <AnimatePresence>{heartRevealed && <motion.div className="heart-reveal" initial={{ opacity: 0, scale: .85, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0 }}><span>♡</span>You're not just a friend, Lavinia. You're family. A sister I got through life's beautiful journey. I'm grateful to have you. <b>♡</b></motion.div>}</AnimatePresence>
+            <AnimatePresence>{heartRevealed && <motion.div className="heart-reveal" initial={{ opacity: 0, scale: .85, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0 }}><span>♡</span>You're not just a friend, Lavinia. You're family—a sister by heart, and someone whose place in my life I will always value. I'm grateful for our bond, and I will always wish the very best for you. <b>♡</b></motion.div>}</AnimatePresence>
             <button className="next-link" onClick={() => transition('constellation')}>DISCOVER YOUR LITTLE GALAXY <ArrowDown size={14}/></button>
           </div>
         </motion.section>}
@@ -477,7 +477,7 @@ function App() {
             <div className="final-badge"><Star size={13} fill="currentColor"/> MADE WITH LOVE, JUST FOR YOU <Star size={13} fill="currentColor"/></div>
             <p className="final-overline">THE WORLD IS A LITTLE MORE MAGICAL BECAUSE YOU'RE IN IT</p>
             <h2>Happy Birthday<br/><em>my dear Lavinia!</em> <span>♡</span></h2>
-            <p className="final-message">May every new chapter of your life be more beautiful than the last. You deserve all the happiness in the universe.</p>
+            <p className="final-message">May the year ahead bring you gentle days, brave beginnings, unexpected joy and the kind of happiness that feels like home. You deserve beautiful things, Lavinia.</p>
             <div className="final-mantra"><span>YOU ARE SPECIAL.</span><i>✦</i><span>YOU ARE LOVED.</span><i>✦</i><span>YOU ARE FAMILY.</span></div>
             <div className="final-signoff">LOTS OF LOVE, <em>YOUR FRIEND & SIBLING BY HEART.</em> <span>❤️</span></div>
             <button className="replay-button" onClick={replay}><RefreshCw size={16}/> EXPERIENCE THE MAGIC AGAIN <span>✦</span></button>
