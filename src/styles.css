@@ -191,3 +191,91 @@ button:focus-visible{outline:2px solid #f7d99a;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
 }
+
+
+/* CINEMATIC UPGRADE — Lavinia's universe */
+.app{isolation:isolate;background:#10091f}
+.app:before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 18% 24%,rgba(159,106,211,.22),transparent 32%),radial-gradient(ellipse at 82% 70%,rgba(232,125,183,.16),transparent 34%),radial-gradient(ellipse at 50% 100%,rgba(81,103,173,.16),transparent 42%);animation:universeDrift 18s ease-in-out infinite alternate}
+.app:after{content:"✦     ·        ✧             ·       ✦       ·              ✧       ·     ✦";position:fixed;inset:0;z-index:1;pointer-events:none;color:rgba(255,235,203,.48);font-size:clamp(12px,2vw,22px);letter-spacing:3vw;line-height:18vh;text-align:center;text-shadow:0 0 16px #f4c8ff;animation:starTwinkle 5s ease-in-out infinite alternate;white-space:normal;overflow:hidden}
+.topbar{backdrop-filter:blur(22px);background:linear-gradient(180deg,rgba(17,9,35,.78),rgba(17,9,35,.24));border-bottom:1px solid rgba(255,225,246,.12);box-shadow:0 8px 35px #08041233}
+.brand-mark,.brand-heart{filter:drop-shadow(0 0 9px #f6c5e8);animation:markPulse 2.8s ease-in-out infinite}
+.intro-screen{background:radial-gradient(ellipse at 50% 58%,rgba(117,76,160,.24),transparent 38%),linear-gradient(180deg,rgba(18,10,37,.15),rgba(15,8,30,.62))}
+.intro-copy{position:relative;z-index:3}
+.intro-copy h1{font-size:clamp(39px,6.1vw,78px);line-height:1.12;text-shadow:0 8px 45px rgba(219,168,255,.23);animation:titleBreath 6s ease-in-out infinite}
+.intro-copy h1 em{display:inline-block;color:#ffd5e9;text-shadow:0 0 22px rgba(247,172,220,.6),0 0 70px rgba(177,129,255,.32);animation:nameGlow 3.8s ease-in-out infinite}
+.intro-kicker{color:#f3d6b0;text-shadow:0 0 18px rgba(255,219,171,.32)}
+.eyebrow{filter:drop-shadow(0 0 12px rgba(242,191,236,.25))}
+.eyebrow span{box-shadow:0 0 12px #f6d5a7}
+.gift-stage{perspective:1100px;filter:drop-shadow(0 24px 34px rgba(5,2,15,.45));animation:giftLevitate 4.5s ease-in-out infinite}
+.gift-box{transform-style:preserve-3d;animation:giftTurn 12s ease-in-out infinite}
+.gift-aura{filter:blur(18px);background:radial-gradient(ellipse,rgba(255,218,168,.5),rgba(223,155,238,.18) 42%,transparent 72%);animation:auraSurge 3.5s ease-in-out infinite}
+.gift-glow{box-shadow:0 0 70px 22px rgba(255,212,161,.3),0 0 130px rgba(221,152,255,.25);animation:glowPulse 2.4s ease-in-out infinite}
+.gift-lid{box-shadow:0 8px 26px rgba(255,222,173,.28),inset 0 2px 5px rgba(255,255,255,.55)}
+.primary-cta,.wish-button,.garden-button,.replay-button{box-shadow:0 0 0 1px rgba(255,239,207,.16),0 0 28px rgba(244,199,230,.18),0 12px 38px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.9);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.primary-cta:hover,.wish-button:hover,.garden-button:hover,.replay-button:hover{transform:translateY(-4px);box-shadow:0 0 0 1px rgba(255,239,207,.4),0 0 45px rgba(255,205,231,.4),0 18px 45px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.9)}
+.full-scene{isolation:isolate}
+.full-scene:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.65;background:radial-gradient(ellipse at 50% 48%,transparent 20%,rgba(8,4,20,.22) 75%,rgba(8,4,20,.58));}
+.full-scene:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.035) 48%,transparent 68%);transform:translateX(-120%);animation:cinemaSweep 9s ease-in-out infinite}
+.scene-content{filter:drop-shadow(0 12px 30px rgba(0,0,0,.18))}
+.gold-title{background:linear-gradient(115deg,#fff6d8 5%,#d9ad67 24%,#fff0bd 39%,#c58d50 53%,#fff1c5 68%,#d9a86a 85%,#fff5d7);background-size:240% auto;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 8px 32px rgba(0,0,0,.24);animation:goldShimmer 7s linear infinite,floatHeadline 5s ease-in-out infinite}
+.gold-title em{background:linear-gradient(110deg,#ffe2f0,#dba5db,#fff0d5,#f4b7d9);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:goldShimmer 5s linear infinite}
+.scene-subtitle{text-shadow:0 2px 18px rgba(239,194,255,.2)}
+.scene-canvas{filter:saturate(1.24) contrast(1.04)}
+.scene-canvas canvas{filter:drop-shadow(0 0 18px rgba(223,176,255,.13))}
+.cake-caption{animation:captionGlow 2.8s ease-in-out infinite}
+.wish-button{position:relative;overflow:hidden}
+.wish-button:before,.primary-cta:before,.replay-button:before{content:"";position:absolute;inset:-80% -40%;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);transform:translateX(-75%) rotate(12deg);animation:buttonShine 4.5s ease-in-out infinite}
+.wish-message{padding:15px 25px;border:1px solid rgba(255,229,185,.3);border-radius:50px;background:rgba(255,225,241,.08);backdrop-filter:blur(15px);box-shadow:0 0 42px rgba(249,196,227,.13);animation:messageBloom .8s cubic-bezier(.2,.9,.2,1) both}
+.envelope{transform-style:preserve-3d;animation:envelopeFloat 4s ease-in-out infinite;filter:drop-shadow(0 24px 32px rgba(0,0,0,.4))}
+.envelope-wrap:hover .envelope{filter:drop-shadow(0 25px 42px rgba(235,168,221,.3))}
+.envelope-flap{transform-origin:top center}
+.letter-card{box-shadow:0 30px 100px rgba(0,0,0,.42),0 0 70px rgba(255,199,228,.18);animation:letterGlow 5s ease-in-out infinite alternate}
+.letter-body p{animation:letterInk .8s both}
+.garden-scene{background-image:radial-gradient(ellipse at 50% 72%,rgba(236,142,206,.2),transparent 32%),radial-gradient(ellipse at 14% 18%,rgba(157,133,233,.18),transparent 32%),linear-gradient(180deg,#17112f,#172b3b 85%)}
+.garden-blooms span{filter:drop-shadow(0 0 12px currentColor);animation:flowerSway 3s ease-in-out infinite alternate}
+.quality-card{overflow:hidden;backdrop-filter:blur(18px);box-shadow:inset 0 1px rgba(255,255,255,.2),0 18px 45px rgba(0,0,0,.22),0 0 24px rgba(219,166,255,.05);transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s}
+.quality-card:before{content:"";position:absolute;inset:-1px;background:linear-gradient(125deg,transparent 20%,rgba(255,255,255,.18) 48%,transparent 70%);transform:translateX(-130%);transition:transform .8s}
+.quality-card:hover:before,.quality-active:before{transform:translateX(130%)}
+.quality-card:hover,.quality-active{transform:translateY(-9px) rotateX(5deg) rotateY(-4deg) scale(1.025);box-shadow:0 25px 55px rgba(0,0,0,.3),0 0 38px rgba(235,174,226,.18),inset 0 1px rgba(255,255,255,.25)}
+.quality-icon{animation:iconFloat 3s ease-in-out infinite}
+.quality-card:nth-child(2) .quality-icon{animation-delay:.3s}.quality-card:nth-child(3) .quality-icon{animation-delay:.6s}.quality-card:nth-child(4) .quality-icon{animation-delay:.9s}.quality-card:nth-child(5) .quality-icon{animation-delay:1.2s}.quality-card:nth-child(6) .quality-icon{animation-delay:1.5s}
+.heart-interaction{filter:drop-shadow(0 0 18px rgba(255,152,214,.6));animation:heartBeat 2s ease-in-out infinite,heartHover 5s ease-in-out infinite}
+.heart-interaction svg{filter:drop-shadow(0 0 22px #ff9bd0) drop-shadow(0 0 48px rgba(255,120,198,.4));}
+.heart-orbit{box-shadow:0 0 22px rgba(255,185,223,.14),inset 0 0 22px rgba(255,185,223,.08)}
+.heart-reveal{border-color:rgba(255,205,231,.4);box-shadow:0 0 55px rgba(245,155,209,.2),inset 0 1px rgba(255,255,255,.12);animation:messageBloom .9s cubic-bezier(.2,.9,.2,1) both}
+.firework{animation-duration:3.8s;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 20px currentColor)}
+.firework:before,.firework:after,.firework i{box-shadow:0 -45px 0 currentColor,32px -32px 0 currentColor,45px 0 0 currentColor,32px 32px 0 currentColor,0 45px 0 currentColor,-32px 32px 0 currentColor,-45px 0 0 currentColor,-32px -32px 0 currentColor,0 -22px 0 currentColor,16px -16px 0 currentColor,22px 0 0 currentColor,16px 16px 0 currentColor,0 22px 0 currentColor,-16px 16px 0 currentColor,-22px 0 0 currentColor,-16px -16px 0 currentColor}
+.firework-title{animation:titleBreath 5s ease-in-out infinite;text-shadow:0 0 35px rgba(222,191,255,.28),0 10px 50px rgba(0,0,0,.25)}
+.final-scene{background-image:radial-gradient(ellipse at 50% 45%,rgba(255,195,224,.22),transparent 38%),radial-gradient(ellipse at 50% 100%,rgba(225,177,116,.12),transparent 45%),linear-gradient(180deg,#241333,#110a25)}
+.final-glow{animation:finalRadiance 5s ease-in-out infinite}
+.final-content h2{animation:titleBreath 5.5s ease-in-out infinite}
+.final-content h2 em{display:inline-block;text-shadow:0 0 28px rgba(255,191,224,.45);animation:nameGlow 3.5s ease-in-out infinite}
+.final-badge{box-shadow:0 0 30px rgba(255,221,175,.1);animation:badgeFloat 4s ease-in-out infinite}
+.final-mantra span{animation:mantraGlow 3s ease-in-out infinite alternate}
+.final-mantra span:nth-of-type(2){animation-delay:.5s}.final-mantra span:nth-of-type(3){animation-delay:1s}
+.page-footer{backdrop-filter:blur(15px)}
+@keyframes universeDrift{0%{transform:translate3d(-2%,0,0) scale(1)}100%{transform:translate3d(2%,-2%,0) scale(1.08)}}
+@keyframes starTwinkle{0%{opacity:.22;transform:translateY(0)}100%{opacity:.72;transform:translateY(-12px)}}
+@keyframes markPulse{50%{filter:drop-shadow(0 0 16px #ffc5e8);transform:scale(1.12)}}
+@keyframes titleBreath{0%,100%{transform:translateY(0);filter:brightness(1)}50%{transform:translateY(-5px);filter:brightness(1.12)}}
+@keyframes nameGlow{0%,100%{filter:drop-shadow(0 0 9px rgba(255,187,224,.3))}50%{filter:drop-shadow(0 0 24px rgba(255,187,224,.8))}}
+@keyframes giftLevitate{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-15px) rotate(1deg)}}
+@keyframes giftTurn{0%,100%{transform:rotateY(-8deg) rotateX(4deg)}50%{transform:rotateY(8deg) rotateX(-2deg)}}
+@keyframes auraSurge{0%,100%{opacity:.55;transform:scale(.88)}50%{opacity:1;transform:scale(1.16)}}
+@keyframes goldShimmer{to{background-position:240% center}}
+@keyframes floatHeadline{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes cinemaSweep{0%,35%{transform:translateX(-120%)}65%,100%{transform:translateX(120%)}}
+@keyframes captionGlow{0%,100%{text-shadow:0 0 0 transparent}50%{text-shadow:0 0 18px rgba(255,211,164,.65)}}
+@keyframes buttonShine{0%,55%{transform:translateX(-75%) rotate(12deg)}80%,100%{transform:translateX(75%) rotate(12deg)}}
+@keyframes messageBloom{from{filter:blur(8px);opacity:0;transform:translateY(18px) scale(.94)}to{filter:blur(0);opacity:1;transform:translateY(0) scale(1)}}
+@keyframes envelopeFloat{0%,100%{transform:translateY(0) rotateX(0) rotateZ(-1deg)}50%{transform:translateY(-12px) rotateX(4deg) rotateZ(1deg)}}
+@keyframes letterGlow{from{box-shadow:0 25px 90px rgba(0,0,0,.35),0 0 30px rgba(226,177,219,.1)}to{box-shadow:0 25px 90px rgba(0,0,0,.35),0 0 65px rgba(226,177,219,.24)}}
+@keyframes letterInk{from{opacity:0;filter:blur(4px);transform:translateY(9px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes flowerSway{from{transform:translateY(2px) rotate(-8deg)}to{transform:translateY(-7px) rotate(8deg)}}
+@keyframes iconFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-7px) rotate(4deg)}}
+@keyframes heartHover{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes finalRadiance{0%,100%{opacity:.45;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes badgeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes mantraGlow{from{text-shadow:0 0 0 rgba(255,226,187,0)}to{text-shadow:0 0 16px rgba(255,226,187,.5)}}
+@media(max-width:760px){.app:after{font-size:12px;line-height:15vh;letter-spacing:2vw}.intro-copy h1{font-size:clamp(35px,9.5vw,58px)}.gift-stage{animation-duration:5.5s}.full-scene:after{animation-duration:13s}.quality-card:hover,.quality-active{transform:translateY(-4px) scale(1.015)}}
+@media(prefers-reduced-motion:reduce){.app:before,.app:after,.gift-stage,.gift-box,.intro-copy h1,.intro-copy h1 em,.gold-title,.gold-title em,.quality-icon,.heart-interaction,.final-glow,.final-content h2,.final-content h2 em,.final-badge,.firework-title{animation:none!important}}
